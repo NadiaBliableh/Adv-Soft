@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const mysql2 = require('mysql2');
@@ -30,3 +31,18 @@ const rawExecute = async (sql, params = []) => {
 };
 
 module.exports = { sequelize, rawQuery, rawExecute };
+=======
+const mysql = require('mysql2');
+require('dotenv').config();
+
+const pool = mysql.createPool({
+    host: '127.0.0.1',
+    user: 'root',
+    password: '', // في XAMPP غالباً فارغ
+    database: 'wasel_db',
+    waitForConnections: true,
+    connectionLimit: 10
+});
+
+module.exports = pool.promise();
+>>>>>>> ea16e36d675a0bcc87d42dc84595de64726841db

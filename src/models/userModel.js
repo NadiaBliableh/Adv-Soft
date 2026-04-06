@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db');
 
@@ -15,5 +16,16 @@ const User = sequelize.define('User', {
   createdAt: 'created_at',
   updatedAt: false
 });
+=======
+const db = require('../config/db');
+
+class User {
+    static async findAll() {
+        const [rows] = await db.execute('SELECT * FROM users');
+        return rows;
+    }
+    // هنا سنضيف كود التسجيل (Register) لاحقاً
+}
+>>>>>>> ea16e36d675a0bcc87d42dc84595de64726841db
 
 module.exports = User;
