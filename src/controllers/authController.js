@@ -97,3 +97,4 @@ exports.me = async (req, res, next) => {
     res.json({ success: true, data: user });
   } catch (err) { next(err); }
 };
+// Auth Module - Developed by Nadia Bliableh
