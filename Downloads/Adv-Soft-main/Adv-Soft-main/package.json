@@ -1,0 +1,21 @@
+{
+  "name": "advsoft_proj",
+  "version": "1.0.0",
+  "description": "Smart Mobility & Checkpoint Intelligence Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.14.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.1.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.20.0",
+    "sequelize": "^6.33.0"
+  }
+}

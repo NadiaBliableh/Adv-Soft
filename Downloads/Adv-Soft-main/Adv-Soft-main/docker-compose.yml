@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=mysql
+      - DB_NAME=wasel_db
+      - DB_USER=wasel_user
+      - DB_PASS=wasel_pass
+      - JWT_SECRET=wasel_jwt_secret_2026_minimum_32_characters
+      - JWT_REFRESH_SECRET=wasel_refresh_secret_2026_min_32
+      - NODE_ENV=production
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: wasel_db
+      MYSQL_USER: wasel_user
+      MYSQL_PASSWORD: wasel_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql_data:
