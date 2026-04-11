@@ -210,6 +210,6 @@ Under supervision of **Dr. Amjad AbuHassan**
 | Name | Role |
 |------|------|
 | Nadia Bliableh | Auth, Route Estimation, Alerts, External APIs, Docker |
-| Walaa | Incidents, Reports, Database Schema |
+| Walaa Abu Jafar | Incidents, Reports, Database Schema |
 
 > Built with ❤️ for Palestinian communities 🇵🇸
