@@ -1,0 +1,1060 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Default module",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/api/v1/incidents": {
+      "get": {
+        "summary": "/incidents",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "type": "closure",
+                "severity": "high",
+                "title": "حاجز حوارة مغلق",
+                "description": "الحاجز مغلق بشكل كامل",
+                "latitude": 32.1234,
+                "longitude": 35.2345
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  },
+                  "2": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  },
+                  "3": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  },
+                  "4": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  },
+                  "5": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  },
+                  "6": {
+                    "summary": "OK",
+                    "value": {
+                      "success": true,
+                      "data": [
+                        {
+                          "id": 1,
+                          "checkpoint_id": null,
+                          "type": "closure",
+                          "severity": "high",
+                          "title": "حاجز حوارة مغلق",
+                          "description": "الحاجز مغلق بشكل كامل",
+                          "latitude": "32.1234000",
+                          "longitude": "35.2345000",
+                          "status": "active",
+                          "reported_by": 1,
+                          "verified_by": null,
+                          "created_at": "2026-04-06T22:50:43.000Z",
+                          "updated_at": "2026-04-06T22:50:43.000Z",
+                          "reporter_name": "Test User",
+                          "checkpoint_name": null
+                        }
+                      ],
+                      "pagination": {
+                        "page": 1,
+                        "limit": 20,
+                        "total": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "/incidents",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "type": "closure",
+                "severity": "high",
+                "title": "Huwwara Checkpoint fully closed",
+                "description": "Military closed the checkpoint since 6AM completely",
+                "latitude": 32.1358,
+                "longitude": 35.2719,
+                "checkpoint_id": null
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": 3
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/incidents/{id}": {
+      "get": {
+        "summary": "/incidents/:id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "checkpoint_id": {
+                            "type": "integer",
+                            "nullable": true
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "severity": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "latitude": {
+                            "type": "string"
+                          },
+                          "longitude": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "reported_by": {
+                            "type": "integer"
+                          },
+                          "verified_by": {
+                            "type": "null"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          },
+                          "reporter_name": {
+                            "type": "string"
+                          },
+                          "checkpoint_name": {
+                            "type": "string",
+                            "nullable": true
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "checkpoint_id",
+                          "type",
+                          "severity",
+                          "title",
+                          "description",
+                          "latitude",
+                          "longitude",
+                          "status",
+                          "reported_by",
+                          "verified_by",
+                          "created_at",
+                          "updated_at",
+                          "reporter_name",
+                          "checkpoint_name"
+                        ]
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "page": {
+                          "type": "integer"
+                        },
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "total": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "page",
+                        "limit",
+                        "total"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "/incidents/:id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot PUT /api/v1/incidents/</pre>\n</body>\n</html>\n"
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "/incidents/:id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/incidents/{id}/status": {
+      "patch": {
+        "summary": "/incidents/:id/status",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot PATCH /api/v1/incidents//status</pre>\n</body>\n</html>\n"
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "summary": "/auth/login",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "email": "nadia@wasel.ps",
+                "password": "Wasel2026!"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwicm9sZSI6ImNpdGl6ZW4iLCJpYXQiOjE3NzU1MTY0NjYsImV4cCI6MTc3NTUxNzM2Nn0.qMNGMfnq-a3mBjLr8DLOwMdYvAJx16GnmLxtXbZjF70",
+                    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc1NTE2NDY2LCJleHAiOjE3NzYxMjEyNjZ9.QQlDDqxBRuXbJSpPJoLQls6aNq-cVSG67xeNNAmU0Qs",
+                    "user": {
+                      "id": 1,
+                      "name": "Test User",
+                      "email": "test@test.com",
+                      "role": "citizen"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "summary": "/api/v1/auth/register",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "name": "Nadia",
+                "email": "nadia@wasel.ps",
+                "password": "Wasel2026!"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "example": {
+                  "success": true,
+                  "message": "Registered successfully"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/refresh": {
+      "post": {
+        "summary": "/api/v1/auth/refresh",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "examples": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "summary": "/api/v1/auth/logout",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "summary": "/api/v1/auth/me",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/reports": {
+      "get": {
+        "summary": "/reports",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "/reports",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "latitude": 32.2211,
+                "longitude": 35.2544,
+                "category": "checkpoint",
+                "description": "Long queue at Beit El checkpoint, delay over one hour"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/reports/{id}": {
+      "get": {
+        "summary": "/reports/:id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/reports/{id}/vote": {
+      "post": {
+        "summary": "/reports/:id/vote",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/reports/{id}/moderate": {
+      "patch": {
+        "summary": "/reports/:id/moderate",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/routes/estimate": {
+      "get": {
+        "summary": "routes/estimate",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/alerts": {
+      "get": {
+        "summary": "/alerts",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/alerts/subscriptions": {
+      "get": {
+        "summary": "/alerts/subscriptions",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "/alerts/subscriptions",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "area_name": "Nablus",
+                "latitude": 32.2211,
+                "longitude": 35.2544,
+                "radius_km": 25,
+                "category": "closure"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/alerts/subscriptions/{id}": {
+      "delete": {
+        "summary": "/alerts/subscriptions/:id",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/alerts/{id}/read": {
+      "patch": {
+        "summary": "/alerts/:id/read",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "responses": {},
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [],
+  "security": []
+}

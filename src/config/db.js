@@ -30,6 +30,7 @@ const rawQuery = async (sql, params = []) => {
   return rows;
 };
 
+
 const rawExecute = async (sql, params = []) => {
   const [result] = await pool.execute(sql, params);
   return result;
