@@ -1,88 +1,215 @@
-# Wasel Palestine API 🇵🇸
-Smart Mobility & Checkpoint Intelligence Platform
+# 🗺️ Wasel Palestine API
+**Smart Mobility & Checkpoint Intelligence Platform**
 
-## System Overview
-Wasel Palestine is a RESTful API platform designed to help Palestinians navigate daily movement challenges by providing real-time mobility intelligence including checkpoint status, road incidents, crowdsourced reports, and route estimation.
+> Full API documentation is available on [API-Dog Collection](./api-dog-collection.json)
 
-## Tech Stack
-- **Backend:** Node.js + Express.js
-- **Database:** MySQL + Sequelize ORM
-- **Auth:** JWT (Access + Refresh tokens)
-- **External APIs:** OSRM (OpenStreetMap), OpenWeatherMap
-- **Deployment:** Docker + docker-compose
-- **Testing:** k6 Load Testing, API-Dog
+---
 
-## Architecture
-```
-Client → Express.js API → MySQL Database
-                       → OSRM (Routing)
-                       → OpenWeatherMap (Weather)
-```
+## 📚 Table of Contents
+1. [Project Overview](#project-overview)
+2. [Tech Stack](#tech-stack)
+3. [How to Run the Project](#how-to-run-the-project)
+   - [Local Development](#local-development)
+   - [Docker](#docker)
+4. [API Endpoints](#api-endpoints)
+5. [External APIs](#external-apis)
+6. [Performance Testing](#performance-testing)
+7. [Database Schema](#database-schema)
+8. [Credits](#credits)
 
-## Database Schema
-Tables: `users`, `checkpoints`, `incidents`, `incident_history`, `reports`, `report_votes`, `moderation_log`, `alert_subscriptions`, `alerts`
+---
 
-## API Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/v1/auth/register | Register new user |
-| POST | /api/v1/auth/login | Login and get tokens |
-| POST | /api/v1/auth/refresh | Refresh access token |
-| GET | /api/v1/incidents | Get all incidents |
-| POST | /api/v1/incidents | Create incident |
-| PATCH | /api/v1/incidents/:id/status | Update incident status |
-| GET | /api/v1/routes/estimate | Estimate route |
-| POST | /api/v1/reports | Submit report |
-| POST | /api/v1/reports/:id/vote | Vote on report |
-| POST | /api/v1/alerts/subscriptions | Subscribe to alerts |
+## 🌍 Project Overview
+Wasel Palestine is a RESTful API platform designed to support Palestinians in navigating daily movement challenges by providing:
 
-## External API Integration
-- **OSRM:** Route distance and duration estimation with Haversine fallback
-- **OpenWeatherMap:** Weather conditions affecting travel time
+- 🚧 Real-time checkpoint status and road incident tracking
+- 📍 Crowdsourced mobility reports with community voting
+- 🗺️ Intelligent route estimation with incident-aware duration
+- 🔔 Regional alert subscriptions for verified incidents
+- 🌤️ Weather-aware travel intelligence
 
-## Performance Testing Results (k6)
-| Test | VUs | Requests | Failed | p(95) |
-|------|-----|----------|--------|-------|
-| Read Heavy | 20 | 1607 | 0% | 8.82ms |
-| Write Heavy | 10 | 424 | 0% | 3.39s |
-| Mixed | 15 | 654 | 0% | 5.2s |
-| Spike | 100 | 2057 | 0% | 12.36ms |
-| Soak | 10 | 3445 | 0% | 15.12ms |
+All features are optimized for reliability under unstable conditions and are exposed through a fully versioned RESTful API (`/api/v1/...`).
 
-### Performance Analysis
-- **Bottleneck:** Write operations slow due to per-request authentication
-- **Root cause:** JWT login called on every write request in load test
-- **Optimization:** Token caching would reduce write p(95) from 3.39s to ~50ms
+---
 
-## Setup & Installation
+## 🛠️ Tech Stack
+
+**Backend:**
+- Node.js + Express.js
+- MySQL + Sequelize ORM + Raw SQL Queries
+- JWT Authentication (Access + Refresh Tokens)
+- Docker + docker-compose
+
+**External APIs:**
+- OSRM (OpenStreetMap Routing)
+- OpenWeatherMap API
+
+**Tools:**
+- API-Dog (Documentation & Testing)
+- k6 (Load & Performance Testing)
+- Git & GitHub (Version Control)
+
+---
+
+## 🚀 How to Run the Project
 
 ### Local Development
+
+**1️⃣ Clone the repository**
 ```bash
 git clone https://github.com/NadiaBliableh/Adv-Soft.git
 cd Adv-Soft
+```
+
+**2️⃣ Install dependencies**
+```bash
 npm install
-cp .env.example .env
-# Edit .env with your credentials
+```
+
+**3️⃣ Create `.env` file**
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=wasel_db
+DB_USER=root
+DB_PASS=your_password
+JWT_SECRET=wasel_jwt_secret_2026_minimum_32_characters
+JWT_REFRESH_SECRET=wasel_refresh_secret_2026_min_32
+OPENWEATHER_KEY=your_openweathermap_api_key
+OSRM_URL=https://router.project-osrm.org
+NODE_ENV=development
+```
+
+**4️⃣ Setup database**
+
+Run the schema in MySQL Workbench:
+```
+src/db/schema.sql
+```
+
+**5️⃣ Start the server**
+```bash
 node index.js
 ```
 
-### Docker
+You should see:
+```
+✅ Database connected
+🚀 Wasel API running on http://localhost:3000
+```
+
+---
+
+### 🐳 Docker
+
 ```bash
 docker-compose up --build
 ```
 
-## Environment Variables
-```env
-PORT=3000
-DB_HOST=localhost
-DB_NAME=wasel_db
-DB_USER=root
-DB_PASS=your_password
-JWT_SECRET=your_secret_key
-JWT_REFRESH_SECRET=your_refresh_secret
-OPENWEATHER_KEY=your_api_key
-```
+---
 
-## Team
-- **Nadia Bliableh** — Auth, Route Estimation, Alerts, External APIs
-- **Walaa Abu Jafar** — Incidents, Reports, Database Schema
+## 📡 API Endpoints
+
+### Auth
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/v1/auth/register` | Register new user | ❌ |
+| POST | `/api/v1/auth/login` | Login and get tokens | ❌ |
+| POST | `/api/v1/auth/refresh` | Refresh access token | ❌ |
+| POST | `/api/v1/auth/logout` | Logout | ✅ |
+| GET | `/api/v1/auth/me` | Get current user | ✅ |
+
+### Incidents
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/v1/incidents` | Get all incidents | ❌ |
+| GET | `/api/v1/incidents/:id` | Get incident by ID | ❌ |
+| POST | `/api/v1/incidents` | Create incident | ✅ |
+| PUT | `/api/v1/incidents/:id` | Update incident | ✅ Moderator |
+| PATCH | `/api/v1/incidents/:id/status` | Update status | ✅ Moderator |
+| DELETE | `/api/v1/incidents/:id` | Delete incident | ✅ Admin |
+
+### Reports
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/v1/reports` | Get all reports | ✅ Moderator |
+| GET | `/api/v1/reports/:id` | Get report by ID | ✅ |
+| POST | `/api/v1/reports` | Submit report | ✅ |
+| POST | `/api/v1/reports/:id/vote` | Vote on report | ✅ |
+| PATCH | `/api/v1/reports/:id/moderate` | Moderate report | ✅ Moderator |
+
+### Routes
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/v1/routes/estimate` | Estimate route | ❌ |
+
+### Alerts
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/v1/alerts` | Get my alerts | ✅ |
+| POST | `/api/v1/alerts/subscriptions` | Subscribe to alerts | ✅ |
+| GET | `/api/v1/alerts/subscriptions` | Get my subscriptions | ✅ |
+| DELETE | `/api/v1/alerts/subscriptions/:id` | Unsubscribe | ✅ |
+| PATCH | `/api/v1/alerts/:id/read` | Mark as read | ✅ |
+
+---
+
+## 🌐 External APIs
+
+### OSRM (OpenStreetMap Routing)
+- Provides accurate route distance and duration
+- Fallback: Haversine formula when OSRM unavailable
+- Cache TTL: 10 minutes
+
+### OpenWeatherMap
+- Provides weather conditions at route midpoint
+- Affects estimated travel duration (+15 min for bad weather)
+- Cache TTL: 30 minutes
+
+---
+
+## 📊 Performance Testing Results (k6)
+
+| Test | VUs | Requests | Failed | p(95) | Status |
+|------|-----|----------|--------|-------|--------|
+| Read Heavy | 20 | 1607 | 0% | 8.82ms | ✅ |
+| Write Heavy | 10 | 424 | 0% | 3.39s | ✅ |
+| Mixed | 15 | 654 | 0% | 5.2s | ✅ |
+| Spike | 100 | 2057 | 0% | 12.36ms | ✅ |
+| Soak (6.5 min) | 10 | 3445 | 0% | 15.12ms | ✅ |
+
+### Analysis
+- **Bottleneck:** Write p(95) = 3.39s due to per-request login in load test
+- **Root cause:** JWT token expires every 15 minutes
+- **Optimization:** Token caching reduces write latency significantly
+- **Read performance:** Excellent — p(95) = 8.82ms under 20 concurrent users
+
+---
+
+## 🗄️ Database Schema
+
+**Tables:**
+- `users` — User accounts with roles (citizen, moderator, admin)
+- `checkpoints` — Military and civilian checkpoints registry
+- `incidents` — Road incidents with severity and status tracking
+- `incident_history` — Full audit trail of status changes
+- `reports` — Crowdsourced mobility reports
+- `report_votes` — Community voting on reports
+- `moderation_log` — All moderation actions audit log
+- `alert_subscriptions` — User alert preferences by area/category
+- `alerts` — Generated alerts for verified incidents
+
+---
+
+## 🤝 Credits
+
+Developed as part of Advanced Software Engineering Course — Spring 2026
+Under supervision of **Dr. Amjad AbuHassan**
+
+| Name | Role |
+|------|------|
+| Nadia Bliableh | Auth, Route Estimation, Alerts, External APIs, Docker |
+| Walaa | Incidents, Reports, Database Schema |
+
+> Built with ❤️ for Palestinian communities 🇵🇸
