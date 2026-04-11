@@ -1,34 +1,42 @@
 # 🗺️ Wasel Palestine API
-**Smart Mobility & Checkpoint Intelligence Platform**
+### Smart Mobility & Checkpoint Intelligence Platform
 
-> Full API documentation is available on [API-Dog Collection](./api-dog-collection.json)
+![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=flat&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-backend-000000?style=flat&logo=express&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=flat&logo=mysql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Deploy-2496ED?style=flat&logo=docker&logoColor=white)
+![k6](https://img.shields.io/badge/k6-Load%20Testing-7D64FF?style=flat&logo=k6&logoColor=white)
+
+**Wasel Palestine** is a RESTful API platform designed to support Palestinians in navigating daily movement challenges by providing real-time checkpoint status, road incidents, crowdsourced reports, and intelligent route estimation.
+
+> [!NOTE]
+> Full API documentation is available in the [API-Dog Collection](./api-dog-collection.json)
 
 ---
 
 ## 📚 Table of Contents
-1. [Project Overview](#project-overview)
-2. [Tech Stack](#tech-stack)
-3. [How to Run the Project](#how-to-run-the-project)
+1. [Project Overview](#-project-overview)
+2. [Tech Stack](#️-tech-stack)
+3. [How to Run the Project](#-how-to-run-the-project)
    - [Local Development](#local-development)
-   - [Docker](#docker)
-4. [API Endpoints](#api-endpoints)
-5. [External APIs](#external-apis)
-6. [Performance Testing](#performance-testing)
-7. [Database Schema](#database-schema)
-8. [Credits](#credits)
+   - [Docker](#-docker)
+4. [API Endpoints](#-api-endpoints)
+5. [External APIs](#-external-apis)
+6. [Performance Testing](#-performance-testing-results-k6)
+7. [Database Schema](#️-database-schema)
+8. [Credits](#-credits)
 
 ---
 
 ## 🌍 Project Overview
-Wasel Palestine is a RESTful API platform designed to support Palestinians in navigating daily movement challenges by providing:
+Wasel Palestine helps Palestinians navigate movement restrictions through:
 
 - 🚧 Real-time checkpoint status and road incident tracking
 - 📍 Crowdsourced mobility reports with community voting
 - 🗺️ Intelligent route estimation with incident-aware duration
 - 🔔 Regional alert subscriptions for verified incidents
 - 🌤️ Weather-aware travel intelligence
-
-All features are optimized for reliability under unstable conditions and are exposed through a fully versioned RESTful API (`/api/v1/...`).
 
 ---
 
@@ -182,7 +190,7 @@ docker-compose up --build
 ### Analysis
 - **Bottleneck:** Write p(95) = 3.39s due to per-request login in load test
 - **Root cause:** JWT token expires every 15 minutes
-- **Optimization:** Token caching reduces write latency significantly
+- **Optimization applied:** Token caching reduces write latency significantly
 - **Read performance:** Excellent — p(95) = 8.82ms under 20 concurrent users
 
 ---
@@ -204,12 +212,12 @@ docker-compose up --build
 
 ## 🤝 Credits
 
-Developed as part of Advanced Software Engineering Course — Spring 2026
+Developed as part of **Advanced Software Engineering Course — Spring 2026**
 Under supervision of **Dr. Amjad AbuHassan**
 
 | Name | Role |
 |------|------|
 | Nadia Bliableh | Auth, Route Estimation, Alerts, External APIs, Docker |
-| Walaa Abu Jafar | Incidents, Reports, Database Schema |
+| Walaa | Incidents, Reports, Database Schema |
 
 > Built with ❤️ for Palestinian communities 🇵🇸
