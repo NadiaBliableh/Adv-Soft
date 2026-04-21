@@ -28,3 +28,4 @@ const getWeather = async (lat, lng) => {
 };
 
 module.exports = { getWeather };
+// Weather API Integration - Nadia Bliableh
