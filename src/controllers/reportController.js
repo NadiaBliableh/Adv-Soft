@@ -1,4 +1,5 @@
 const { rawQuery, rawExecute } = require('../config/db');
+const UserActivity = require('../models/userActivityModel');
 
 const checkDuplicate = async (lat, lng, category) => {
   const [dup] = await rawQuery(
@@ -27,6 +28,9 @@ exports.submit = async (req, res, next) => {
       [req.user.id, latitude, longitude, category, description,
        duplicate ? 'duplicate' : 'pending', duplicate?.id || null]
     );
+
+    await UserActivity.log(req.user.id, 'report_submit', 'report', result.insertId, req.ip);
+
     res.status(201).json({
       success: true,
       data: { id: result.insertId, is_duplicate: !!duplicate }
@@ -87,6 +91,8 @@ exports.vote = async (req, res, next) => {
     const score = (ups + downs) > 0 ? (ups / (ups + downs)).toFixed(2) : 0;
     await rawExecute('UPDATE reports SET confidence_score = ? WHERE id = ?', [score, req.params.id]);
 
+    await UserActivity.log(req.user.id, 'vote', 'report', req.params.id, req.ip);
+
     res.json({ success: true, data: { confidence_score: score } });
   } catch (err) { next(err); }
 };
@@ -100,6 +106,9 @@ exports.moderate = async (req, res, next) => {
        VALUES (?, 'moderation', 'report', ?, ?)`,
       [req.user.id, req.params.id, reason || null]
     );
+
+    await UserActivity.log(req.user.id, 'moderate_report', 'report', req.params.id, req.ip);
+
     res.json({ success: true, message: 'Report moderated' });
   } catch (err) { next(err); }
 };

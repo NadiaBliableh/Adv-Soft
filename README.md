@@ -19,13 +19,12 @@
 1. [Project Overview](#-project-overview)
 2. [Tech Stack](#️-tech-stack)
 3. [How to Run the Project](#-how-to-run-the-project)
-   - [Local Development](#local-development)
-   - [Docker](#-docker)
 4. [API Endpoints](#-api-endpoints)
 5. [External APIs](#-external-apis)
-6. [Performance Testing](#-performance-testing-results-k6)
-7. [Database Schema](#️-database-schema)
-8. [Credits](#-credits)
+6. [Security & Abuse Prevention](#-security--abuse-prevention)
+7. [Performance Testing](#-performance-testing-results-k6)
+8. [Database Schema](#️-database-schema)
+9. [Credits](#-credits)
 
 ---
 
@@ -90,8 +89,6 @@ NODE_ENV=development
 ```
 
 **4️⃣ Setup database**
-
-Run the schema in MySQL Workbench:
 ```
 src/db/schema.sql
 ```
@@ -107,10 +104,7 @@ You should see:
 🚀 Wasel API running on http://localhost:3000
 ```
 
----
-
 ### 🐳 Docker
-
 ```bash
 docker-compose up --build
 ```
@@ -127,6 +121,7 @@ docker-compose up --build
 | POST | `/api/v1/auth/refresh` | Refresh access token | ❌ |
 | POST | `/api/v1/auth/logout` | Logout | ✅ |
 | GET | `/api/v1/auth/me` | Get current user | ✅ |
+| GET | `/api/v1/auth/activity/:userId` | Get user activity log | ✅ Admin |
 
 ### Incidents
 | Method | Endpoint | Description | Auth |
@@ -177,6 +172,19 @@ docker-compose up --build
 
 ---
 
+## 🔒 Security & Abuse Prevention
+
+- **JWT Authentication** — Access token (15 min) + Refresh token (7 days)
+- **Rate Limiting** — IP-based limiting via `express-rate-limit`
+- **User-level Abuse Prevention** — Max 5 report submissions per user per 60 minutes
+- **Vote Protection** — Max 10 votes per user per 60 minutes
+- **Activity Logging** — All user actions tracked in `user_activity` table
+- **Moderation Audit** — All moderation actions logged in `moderation_log`
+- **Helmet** — HTTP security headers
+- **Duplicate Detection** — Geographic proximity check (0.005° radius, 2-hour window)
+
+---
+
 ## 📊 Performance Testing Results (k6)
 
 | Test | VUs | Requests | Failed | p(95) | Status |
@@ -207,6 +215,7 @@ docker-compose up --build
 - `moderation_log` — All moderation actions audit log
 - `alert_subscriptions` — User alert preferences by area/category
 - `alerts` — Generated alerts for verified incidents
+- `user_activity` — User action logs for abuse prevention and audit trail
 
 ---
 
@@ -218,6 +227,6 @@ Under supervision of **Dr. Amjad AbuHassan**
 | Name | Role |
 |------|------|
 | Nadia Bliableh | Auth, Route Estimation, Alerts, External APIs, Docker |
-| Walaa Abu Jafar| Incidents, Reports, Database Schema |
+| Walaa Abu Jafar | Incidents, Reports, Database Schema |
 
 > Built with ❤️ for Palestinian communities 🇵🇸

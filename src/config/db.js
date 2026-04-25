@@ -1,4 +1,4 @@
-require('dotenv').config();
+// احذف هاد السطر ← require('dotenv').config();
 const mysql2 = require('mysql2/promise');
 const { Sequelize } = require('sequelize');
 
@@ -29,7 +29,6 @@ const rawQuery = async (sql, params = []) => {
   const [rows] = await pool.execute(sql, params);
   return rows;
 };
-
 
 const rawExecute = async (sql, params = []) => {
   const [result] = await pool.execute(sql, params);
